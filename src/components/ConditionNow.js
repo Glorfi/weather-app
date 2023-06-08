@@ -5,9 +5,9 @@ import extractNumberFromURL from "../utils/ExtractNumberFromUrl";
 
 function ConditionNow() {
   const weather = useContext(GeneralContext);
-  if (weather) {
     const partofDay = getDayOrNightString(weather.current.is_day);
     const iconNumber = extractNumberFromURL(weather.current.condition.icon);
+    console.log(iconNumber);
     return (
       <div className="condition-now">
         <img
@@ -25,7 +25,6 @@ function ConditionNow() {
         </p>
       </div>
     );
-  }
 }
 
 export default ConditionNow;

@@ -12,12 +12,12 @@ function WeatherCards() {
   const hoursToDisplay = todayToDisplay.concat(tomorrowToDisplay);
   console.log(hoursToDisplay);
   const containerRef = useRef(null);
+  
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
   function handleWheel(event) {
-    event.preventDefault();
     const container = containerRef.current;
     container.scrollLeft += event.deltaY;
   }

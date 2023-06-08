@@ -1,16 +1,23 @@
+import { useEffect, useState, memo } from "react";
 import extractNumberFromURL from "../utils/ExtractNumberFromUrl";
 import formatHours from "../utils/FormatHours";
 import getDayOrNightString from "../utils/GetDayOrNight";
 
 function WeatherCard({ hour }) {
+  const [imageNumber, setImageNumber] = useState();
   const { temp_c, wind_kph, time, is_day, condition } = hour;
   const currenthour = formatHours(time);
   const partofDay = getDayOrNightString(is_day);
   const iconNumber = extractNumberFromURL(condition.icon);
+
+  useEffect(() => {
+    setImageNumber(extractNumberFromURL(condition.icon));
+  }, [condition.icon]);
+
   return (
     <div className="weather-card">
       <img
-        src={`./images/conditions_icons/${partofDay}_icons/${iconNumber}.svg`}
+        src={`./images/conditions_icons/${partofDay}_icons/${imageNumber}.svg`}
         alt=""
         className="weather-card__image"
       />
@@ -33,4 +40,4 @@ function WeatherCard({ hour }) {
   );
 }
 
-export default WeatherCard;
+export default memo(WeatherCard);
