@@ -19,7 +19,7 @@ body,
   color: white;
 }
 
-.App::after {
+/* .App::after {
   content: "";
   position: fixed;
   top: 0;
@@ -28,7 +28,7 @@ body,
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 0;
-}
+} */
 .info {
   position: relative;
   margin: 0 auto 0 auto;

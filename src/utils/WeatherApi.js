@@ -4,7 +4,7 @@ class WeatherApi {
   }
   async getWeather(ip) {
     const res = await fetch(
-      `https://api.weatherapi.com/v1/forecast.json?q=${ip}&days=7&key=${this._key}%20`
+      `https://api.weatherapi.com/v1/forecast.json?q=${ip}&days=14&key=${this._key}%20`
     );
     const data = await res.json();
     return data;
